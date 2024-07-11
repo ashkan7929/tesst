@@ -51,7 +51,7 @@ app.get("/webhook", (req, res) => {
   let mode = req.query["hub.mode"];
   let token = req.query["hub.verify_token"];
   let challenge = req.query["hub.challenge"];
-
+  console.log(req, res, "called get");
   // Check if a token and mode is in the query string of the request
   if (mode && token) {
     // Check the mode and token sent is correct
@@ -305,11 +305,11 @@ var listener = app.listen(config.port, function () {
   ) {
     console.log(
       "Is this the first time running?\n" +
-        "Make sure to set the both the Messenger profile, persona " +
-        "and webhook by visiting:\n" +
-        config.appUrl +
-        "/profile?mode=all&verify_token=" +
-        config.verifyToken
+      "Make sure to set the both the Messenger profile, persona " +
+      "and webhook by visiting:\n" +
+      config.appUrl +
+      "/profile?mode=all&verify_token=" +
+      config.verifyToken
     );
   }
 
